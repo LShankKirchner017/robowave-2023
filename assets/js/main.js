@@ -21,4 +21,9 @@ $(document).ready(function() {
         .pauseFor(820)
         .start()
     }
+
+    //power glitch
+    PowerGlitch.glitch('.glitch', {
+        hideOverflow: true
+    })
 });
