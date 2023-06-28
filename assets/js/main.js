@@ -26,4 +26,26 @@ $(document).ready(function() {
     PowerGlitch.glitch('.glitch', {
         hideOverflow: true
     })
+
+    // last error date
+  $('[data-lastErrorDate]').each(function(){ 
+    // get date form data-LastErrorDate
+    var errDate = $(this).attr("data-lastErrorDate")
+    errDate = dayjs(errDate)
+    // turn date into dayjs object
+    console.log(errDate)
+    // get the today's date as a dayjs object
+    var today = dayjs()
+    //find difference in days between days
+
+    // if the diff < 5 
+        //text-danger
+    // if the diff is <30
+        //text-warning
+    //else
+        //text-success
+    
+    //set the text of p
+            //add class
+  })
 });
