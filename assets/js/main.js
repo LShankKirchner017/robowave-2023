@@ -8,7 +8,6 @@ $(document).ready(function() {
 
     //typewriterjs
     var typewriterElements = document.querySelectorAll('.typewriter-effect')
-    console.log(typewriterElements)
     for (var i = 0; i < typewriterElements.length; i++){
         var currentEl = typewriterElements[i]
         var innerText = currentEl.innerText
@@ -31,21 +30,27 @@ $(document).ready(function() {
   $('[data-lastErrorDate]').each(function(){ 
     // get date form data-LastErrorDate
     var errDate = $(this).attr("data-lastErrorDate")
-    errDate = dayjs(errDate)
     // turn date into dayjs object
-    console.log(errDate)
+    errDate = dayjs(errDate)
     // get the today's date as a dayjs object
     var today = dayjs()
     //find difference in days between days
+    var diff= today.diff(errDate, 'day')
+    console.log(diff)
 
-    // if the diff < 5 
-        //text-danger
-    // if the diff is <30
-        //text-warning
-    //else
-        //text-success
-    
-    //set the text of p
-            //add class
-  })
-});
+    // determine text color class
+    var textClass
+    if (diff <5){
+        textClass = 'text-danger'
+    } else if (diff < 30) {
+        textClass = 'text-warning'
+    } else {
+        textClass = 'text-success'
+    }
+    // update paragraph
+    $(this)
+    .text(diff + " days since last error")
+    .addClass(textClass)
+    })
+
+  });
